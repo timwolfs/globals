@@ -9,12 +9,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="any"
-          href="https://prismic.io/favicon.ico"
-        />
+        <script async defer src="https://static.cdn.prismic.io/prismic.js?new=true&repo=globals"></script>
       </head>
       <body>
         <main>
