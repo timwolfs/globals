@@ -23,7 +23,7 @@ html {
         @apply text-3xl font-semibold;
     }
     p {
-        @apply text-xl leading-relaxed;
+        @apply text-xl leading-loose;
     }
     h1 + p,
     h2 + p,
@@ -37,5 +37,7 @@ html {
 }
 
 @layer components {
-
+    .text-image.section + .text-image.section {
+        @apply mt-0;
+    }
 }

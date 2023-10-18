@@ -7,7 +7,8 @@ import * as prismic from "@prismicio/client";
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
 
-import { Navigation } from "@/components/Navigation";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 type Params = { uid: string };
 
@@ -50,15 +51,13 @@ export default async function Page({ params }: { params: Params, header: any, fo
     .catch(() => notFound());
 
   return (
-    <main className="space-y-8">
-      <header className="p-8">
-        <Navigation navigation={header} />
-      </header>
-      <SliceZone slices={page.data.slices} components={components} />
-      <footer className="p-8">
-        <Navigation navigation={footer} />
-      </footer>
-    </main>
+    <>
+      <Header navigation={header} />
+      <div className="space-y-8">
+        <SliceZone slices={page.data.slices} components={components} />
+      </div>
+      <Footer navigation={footer} />
+    </>
   )
 }
 

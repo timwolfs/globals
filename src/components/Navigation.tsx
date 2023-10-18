@@ -17,7 +17,7 @@ export function Navigation({ navigation }: any) {
           navigation.data.slices.map((slice: any) => {
             return (
               <li key={slice.id}>
-                <PrismicNextLink field={slice.primary.link}>
+                <PrismicNextLink field={slice.primary.link} className="no-underline">
                   <PrismicText field={slice.primary.name} />
                 </PrismicNextLink>
 
@@ -27,7 +27,7 @@ export function Navigation({ navigation }: any) {
                     {slice.items.map((item: any) => {
                       return (
                         <li key={prismic.asText(item.child_name)}>
-                          <PrismicNextLink field={item.child_link}>
+                          <PrismicNextLink field={item.child_link} className="no-underline">
                             <PrismicText field={item.child_name} />
                           </PrismicNextLink>
                         </li>
