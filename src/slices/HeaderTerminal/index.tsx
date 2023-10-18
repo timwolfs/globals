@@ -41,10 +41,11 @@ const HeaderTerminal = ({ slice }: HeaderTerminalProps): JSX.Element => {
   }, []);
 
   return (
-    <section className="container bg-primary py-10 lg:py-32">
+    <section className="container bg-primary py-10 lg:py-32 overflow-hidden">
       <div className="grid grid-cols-4 lg:grid-cols-12 gap-x-4">
-        <div className="col-span-4 lg:col-span-8 lg:col-start-3 xl:col-span-6 xl:col-start-4">
-          <div className="w-full shadow-2xl subpixel-antialiased overflow-hidden rounded-md h-64 bg-black border-black mx-auto">
+        <div className="relative col-span-4 lg:col-span-8 lg:col-start-3 xl:col-span-6 xl:col-start-4">
+          <div className="absolute w-full h-full bg-black opacity-20 transform -translate-x-16 translate-y-16 rounded-md" />
+          <div className="relative w-full shadow-2xl subpixel-antialiased overflow-hidden rounded-md h-64 bg-black border-black mx-auto">
             <div className="flex items-center h-6 bg-gray-100 border-b border-gray-500 text-center text-black">
               <div className="flex ml-2 items-center text-center border-red-900 bg-red-500 shadow-inner rounded-full w-3 h-3" />
               <div className="ml-2 border-yellow-900 bg-yellow-500 shadow-inner rounded-full w-3 h-3" />
