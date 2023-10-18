@@ -11,7 +11,7 @@ import { PrismicNextLink } from "@prismicio/next";
 export function Navigation({ navigation }: any) {
   return (
     <nav>
-      <ul className="flex justify-between space-x-8">
+      <ul className="flex justify-between space-x-8 xl:space-x-20">
         {/* Renders top-level links. */}
         {prismic.isFilled.sliceZone(navigation.data.slices) &&
           navigation.data.slices.map((slice: any) => {
