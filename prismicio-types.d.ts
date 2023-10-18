@@ -50,6 +50,7 @@ export type NavigationDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | HeaderTerminalSlice
   | TextWithImageSlice
   | ImageSlice
   | RichTextSlice;
@@ -126,6 +127,36 @@ export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
 export type AllDocumentTypes = NavigationDocument | PageDocument;
+
+/**
+ * Default variation for HeaderTerminal Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeaderTerminalSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>;
+
+/**
+ * Slice variation for *HeaderTerminal*
+ */
+type HeaderTerminalSliceVariation = HeaderTerminalSliceDefault;
+
+/**
+ * HeaderTerminal Shared Slice
+ *
+ * - **API ID**: `header_terminal`
+ * - **Description**: HeaderTerminal
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeaderTerminalSlice = prismic.SharedSlice<
+  "header_terminal",
+  HeaderTerminalSliceVariation
+>;
 
 /**
  * Primary content in *Image → Primary*
@@ -397,6 +428,9 @@ declare module "@prismicio/client" {
       PageDocumentData,
       PageDocumentDataSlicesSlice,
       AllDocumentTypes,
+      HeaderTerminalSlice,
+      HeaderTerminalSliceVariation,
+      HeaderTerminalSliceDefault,
       ImageSlice,
       ImageSliceDefaultPrimary,
       ImageSliceVariation,

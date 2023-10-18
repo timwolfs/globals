@@ -53,9 +53,7 @@ export default async function Page({ params }: { params: Params, header: any, fo
   return (
     <>
       <Header navigation={header} />
-      <div className="space-y-8">
-        <SliceZone slices={page.data.slices} components={components} />
-      </div>
+      <SliceZone slices={page.data.slices} components={components} />
       <Footer navigation={footer} />
     </>
   )

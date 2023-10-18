@@ -53,9 +53,7 @@ export default async function Index() {
   return (
     <>
       <Header navigation={header} />
-      <div className="space-y-8">
-        <SliceZone slices={home.data.slices} components={components} />
-      </div>
+      <SliceZone slices={home.data.slices} components={components} />
       <Footer navigation={footer} />
     </>
   )
