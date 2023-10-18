@@ -38,7 +38,5 @@ html {
 }
 
 @layer components {
-    .text-image.section + .text-image.section {
-        @apply mt-0;
-    }
+    
 }
