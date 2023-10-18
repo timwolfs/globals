@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --color-primary: #D64045;
+    --color-secondary: #E9FFF9;
+}
+
+html {
+    @apply antialiased;
+}
+
+@layer base {
+    a {
+        @apply text-primary underline;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+        @apply text-3xl font-semibold;
+    }
+    p {
+        @apply text-xl leading-relaxed;
+    }
+    h1 + p,
+    h2 + p,
+    h3 + p,
+    h4 + p,
+    h5 + p,
+    p + p,
+    p + a {
+        @apply mt-6;
+    }
+}
+
+@layer components {
+
+}
