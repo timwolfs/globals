@@ -56,7 +56,7 @@ const HeaderTerminal = ({ slice }: HeaderTerminalProps): JSX.Element => {
             </div>
             <div className="pl-1 pt-1 h-auto  text-green-200 font-mono text-xs bg-black">
               <p className="pb-1">Last login: {formattedDateTime} on ttys073</p>
-              <p className="pb-1">tim.wolfs@MAC-L33T ~ % Hello world! []</p>
+              <p className="pb-1">tim.wolfs@MAC-L33T ~ % Hello World! <br />I am a front-end developer located in Rotterdam []</p>
             </div>
           </div>
         </div>

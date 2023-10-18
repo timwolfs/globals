@@ -6,7 +6,7 @@ export interface FooterProps {
 
 const Footer = ({ navigation }: FooterProps) => {
   return (
-    <footer className="p-8 bg-secondary">
+    <footer className="p-8 bg-primary text-white">
       <Navigation navigation={navigation} />
     </footer>
   )

@@ -6,7 +6,7 @@ export interface HeaderProps {
 
 const Header = ({ navigation }: HeaderProps) => {
   return (
-    <header className="p-8 w-full flex flex-col items-center">
+    <header className="text-primary p-8 w-full flex flex-col items-center">
       <Navigation navigation={navigation} />
     </header>
   )
