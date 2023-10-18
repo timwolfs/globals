@@ -295,48 +295,6 @@ export type RichTextSlice = prismic.SharedSlice<
 >;
 
 /**
- * Primary content in *Text → Primary*
- */
-export interface TextSliceDefaultPrimary {
-  /**
-   * Description field in *Text → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: text.primary.description
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  description: prismic.KeyTextField;
-}
-
-/**
- * Default variation for Text Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type TextSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Simplify<TextSliceDefaultPrimary>,
-  never
->;
-
-/**
- * Slice variation for *Text*
- */
-type TextSliceVariation = TextSliceDefault;
-
-/**
- * Text Shared Slice
- *
- * - **API ID**: `text`
- * - **Description**: Text
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type TextSlice = prismic.SharedSlice<"text", TextSliceVariation>;
-
-/**
  * Primary content in *TextWithImage → Primary*
  */
 export interface TextWithImageSliceDefaultPrimary {
@@ -452,10 +410,6 @@ declare module "@prismicio/client" {
       RichTextSliceDefaultPrimary,
       RichTextSliceVariation,
       RichTextSliceDefault,
-      TextSlice,
-      TextSliceDefaultPrimary,
-      TextSliceVariation,
-      TextSliceDefault,
       TextWithImageSlice,
       TextWithImageSliceDefaultPrimary,
       TextWithImageSliceVariation,
