@@ -31,7 +31,8 @@ html {
     h4 + p,
     h5 + p,
     p + p,
-    p + a {
+    p + a,
+    p + .button {
         @apply mt-6;
     }
 }
