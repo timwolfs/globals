@@ -2,7 +2,8 @@
 
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
+import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 
 /**
  * Props for `HeaderTerminal`.
@@ -14,7 +15,36 @@ export type HeaderTerminalProps =
  * Component for "HeaderTerminal" Slices.
  */
 const HeaderTerminal = ({ slice }: HeaderTerminalProps): JSX.Element => {
-  const [formattedDateTime, setFormattedDateTime] = useState('Loading...');
+  const [formattedDateTime, setFormattedDateTime] = useState('...');
+  const cursorVariants = {
+    blinking: {
+      opacity: [0, 0, 1, 1],
+      transition: {
+        duration: 1,
+        repeat: Infinity,
+        repeatDelay: 0,
+        ease: "linear",
+        times: [0, 0.5, 0.5, 1]
+      }
+    }
+  };
+  const textIndex = useMotionValue(0);
+  const texts = [
+    "I am a front-end developer with 6 years of experience",
+    "Living in the greatest city, Rotterdam!",
+    "Experience with javascript (React, Next.js and typescript)",
+    "html, css (tailwindcss, scss and BEM)",
+    "I know some stuff like Drupal CMS, Prismic.io headless CMS",
+    "and also Drupal headless CMS in combination with Next.js",
+    "Fetching the data with JSON api or GraphQL"
+  ];
+  const baseText = useTransform(textIndex, (latest) => texts[latest] || "");
+  const count = useMotionValue(0);
+  const rounded = useTransform(count, (latest) => Math.round(latest));
+  const displayText = useTransform(rounded, (latest) =>
+    baseText.get().slice(0, latest)
+  );
+  const updatedThisRound = useMotionValue(true);
 
   useEffect(() => {
     const updateDateTime = () => {
@@ -35,6 +65,27 @@ const HeaderTerminal = ({ slice }: HeaderTerminalProps): JSX.Element => {
 
     const intervalId = setInterval(updateDateTime, 1000);
 
+    animate(count, 70, {
+      type: "tween",
+      duration: 2.5,
+      ease: "easeIn",
+      repeat: Infinity,
+      repeatType: "reverse",
+      repeatDelay: 0.5,
+      onUpdate(latest) {
+        if (updatedThisRound.get() === true && latest > 0) {
+          updatedThisRound.set(false);
+        } else if (updatedThisRound.get() === false && latest === 0) {
+          if (textIndex.get() === texts.length - 1) {
+            textIndex.set(0);
+          } else {
+            textIndex.set(textIndex.get() + 1);
+          }
+          updatedThisRound.set(true);
+        }
+      }
+    });
+
     return () => {
       clearInterval(intervalId);
     };
@@ -54,8 +105,15 @@ const HeaderTerminal = ({ slice }: HeaderTerminalProps): JSX.Element => {
             </div>
           </div>
           <div className="pl-1 pt-1 h-auto  text-green-200 font-mono text-xs bg-black">
-            <p className="pb-1">Current date: {formattedDateTime} on ttys333</p>
-            <p className="pb-1">tim.wolfs@MAC-L33T ~ % Hello World! <br />I am a front-end developer located in Rotterdam []</p>
+            <p className="pb-1">Current date: {formattedDateTime} on ttys007</p>
+            <p className="pb-1">tim.wolfs@MAC-L33T ~ % Hello World! <br />
+              <motion.span>{displayText}</motion.span>
+              <motion.span
+                variants={cursorVariants}
+                animate="blinking"
+                className="inline-block h-5 w-2 translate-y-1 ml-1 bg-green-200"
+              />
+            </p>
           </div>
         </div>
       </div>
