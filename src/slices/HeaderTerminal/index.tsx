@@ -34,7 +34,7 @@ const HeaderTerminal = ({ slice }: HeaderTerminalProps): JSX.Element => {
     "Living in the greatest city, Rotterdam!",
     "Experience with javascript (React, Next.js and typescript)",
     "html, css (tailwindcss, scss and BEM)",
-    "I know some stuff like Drupal CMS, Prismic.io headless CMS",
+    "I know some stuff about Drupal CMS, Prismic.io headless CMS",
     "and also Drupal headless CMS in combination with Next.js",
     "Fetching data with JSON api or GraphQL"
   ];
