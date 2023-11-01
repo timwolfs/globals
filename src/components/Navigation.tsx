@@ -23,7 +23,7 @@ export function Navigation({ navigation }: any) {
 
                 {/* Renders child links, if present. */}
                 {prismic.isFilled.group(slice.items) && (
-                  <ul className="pl-6 pt-2">
+                  <ul>
                     {slice.items.map((item: any) => {
                       return (
                         <li key={prismic.asText(item.child_name)}>

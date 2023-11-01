@@ -4,7 +4,8 @@
 
 :root {
     --color-primary: #D64045;
-    --color-secondary: #E9FFF9;
+    --color-secondary: #f2f2f2;
+    --color-tertiary: #aa3a3b;
 }
 
 html {
@@ -37,6 +38,9 @@ html {
     p + a,
     p + .button {
         @apply mt-6;
+    }
+    ::selection {
+        @apply bg-primary text-secondary;
     }
 }
 

@@ -20,7 +20,7 @@ export default function RootLayout({
         <script async defer src="https://static.cdn.prismic.io/prismic.js?new=true&repo=globals"></script>
       </head>
       <body>
-        <main>
+        <main className="pt-20">
           {children}
         </main>
         <PrismicPreview repositoryName={repositoryName} />
