@@ -36,7 +36,7 @@ const HeaderTerminal = ({ slice }: HeaderTerminalProps): JSX.Element => {
     "html, css (tailwindcss, scss and BEM)",
     "I know some stuff like Drupal CMS, Prismic.io headless CMS",
     "and also Drupal headless CMS in combination with Next.js",
-    "Fetching the data with JSON api or GraphQL"
+    "Fetching data with JSON api or GraphQL"
   ];
   const baseText = useTransform(textIndex, (latest) => texts[latest] || "");
   const count = useMotionValue(0);
@@ -92,7 +92,7 @@ const HeaderTerminal = ({ slice }: HeaderTerminalProps): JSX.Element => {
   }, []);
 
   return (
-    <section className="container bg-primary py-10 lg:py-32 overflow-hidden">
+    <section className="container bg-gradient-to-tr from-primary to-tertiary py-10 lg:py-32 overflow-hidden">
       <div className="relative max-w-3xl mx-auto">
         <div className="absolute w-full h-full bg-black opacity-20 transform -translate-x-16 translate-y-16 rounded-md" />
         <div className="relative w-full shadow-2xl subpixel-antialiased overflow-hidden rounded-md h-64 bg-black border-black mx-auto">
