@@ -15,7 +15,7 @@ const Header = ({ navigation }: HeaderProps) => {
       <div className="flex flex-col items-center">
         <Navigation navigation={navigation} />
       </div>
-      <motion.div style={{ scaleX: scrollYProgress }} className="absolute bottom-0 left-0 right-0 bg-primary h-1.5 origin-left bg-gradient-to-tr from-primary to-tertiary" />
+      <motion.div style={{ scaleX: scrollYProgress }} className="absolute bottom-0 left-0 right-0 bg-primary h-1.5 origin-left bg-gray-300" />
     </header>
   )
 }
