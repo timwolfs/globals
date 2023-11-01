@@ -28,8 +28,8 @@ const TextWithImage = ({ slice }: TextWithImageProps): JSX.Element => {
           <figure className="relative w-full h-full aspect-square">
             <Image
               className="object-cover"
-              src={slice.primary.image.url}
-              alt={slice.primary.image.alt}
+              src={slice.primary.image.url as string}
+              alt={slice.primary.image.alt || ''}
               fill={true}
             />
           </figure>

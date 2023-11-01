@@ -49,7 +49,7 @@ const HeaderTerminal = ({ slice }: HeaderTerminalProps): JSX.Element => {
   useEffect(() => {
     const updateDateTime = () => {
       const now = new Date();
-      const options = {
+      const options: Intl.DateTimeFormatOptions = {
         weekday: 'short',
         day: '2-digit',
         month: 'short',
