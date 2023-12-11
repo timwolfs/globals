@@ -50,6 +50,7 @@ export type NavigationDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | TextWithImageOverlaySlice
   | CallToActionSlice
   | HeaderTerminalSlice
   | TextWithImageSlice
@@ -487,6 +488,61 @@ export type TextWithImageSlice = prismic.SharedSlice<
   TextWithImageSliceVariation
 >;
 
+/**
+ * Primary content in *TextWithImageOverlay → Primary*
+ */
+export interface TextWithImageOverlaySliceDefaultPrimary {
+  /**
+   * Text field in *TextWithImageOverlay → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_with_image_overlay.primary.text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text: prismic.RichTextField;
+
+  /**
+   * Image field in *TextWithImageOverlay → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_with_image_overlay.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for TextWithImageOverlay Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TextWithImageOverlaySliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<TextWithImageOverlaySliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *TextWithImageOverlay*
+ */
+type TextWithImageOverlaySliceVariation = TextWithImageOverlaySliceDefault;
+
+/**
+ * TextWithImageOverlay Shared Slice
+ *
+ * - **API ID**: `text_with_image_overlay`
+ * - **Description**: TextWithImageOverlay
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TextWithImageOverlaySlice = prismic.SharedSlice<
+  "text_with_image_overlay",
+  TextWithImageOverlaySliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -528,6 +584,10 @@ declare module "@prismicio/client" {
       TextWithImageSliceDefaultPrimary,
       TextWithImageSliceVariation,
       TextWithImageSliceDefault,
+      TextWithImageOverlaySlice,
+      TextWithImageOverlaySliceDefaultPrimary,
+      TextWithImageOverlaySliceVariation,
+      TextWithImageOverlaySliceDefault,
     };
   }
 }
